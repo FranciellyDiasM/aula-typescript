@@ -1,5 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const express = require('express');
+const app = express();  // Inicializa a aplicação Express
 
 async function main() {
   // Criar um novo usuário
@@ -39,6 +39,19 @@ main()
   });
 
   // Iniciar o servidor na porta configurada
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+  });
+
+   // Define a porta para o servidor
+const PORT = process.env.PORT || 3000;
+
+// Configura uma rota básica
+app.get('/', (req, res) => {
+    res.send('Olá, mundo!');
+  });
+
+ // Inicia o servidor na porta definida
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
   });

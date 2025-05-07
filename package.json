@@ -1,10 +1,4 @@
-
-
 {
-  "devDependencies": {
-    "prisma": "^6.7.0",
-    "typescript": "^5.8.3"
-  },
   "name": "aula-typescript",
   "version": "1.0.0",
   "main": "index.js",
@@ -15,15 +9,13 @@
   "author": "",
   "license": "ISC",
   "description": "",
+  "devDependencies": {
+    "prisma": "^6.7.0",
+    "typescript": "^5.8.3"
+  },
   "dependencies": {
     "@prisma/client": "^6.7.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pg": "^8.7.1"
   }
 }
-
-{
-  "title": "Primeiro Post",
-  "content": "Este é o conteúdo do primeiro post.",
-  "authorId": 1
-}
-
