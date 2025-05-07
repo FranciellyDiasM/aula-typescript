@@ -1,23 +1,27 @@
+// prisma/schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // A URL será fornecida no arquivo .env
 }
 
+// Modelo de User
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String
-  posts Post[]
+  id    Int    @id @default(autoincrement()) // Identificador único (autoincremento)
+  name  String // Nome do usuário
+  posts Post[] // Relacionamento: um usuário pode ter muitos posts
 }
 
+// Modelo de Post
 model Post {
-  id       Int    @id @default(autoincrement())
-  title    String
-  content  String
-  author   User   @relation(fields: [authorId], references: [id])
-  authorId Int
+  id        Int     @id @default(autoincrement()) // Identificador único (autoincremento)
+  title     String // Título do post
+  published Boolean @default(true) // Status de publicação (padrão é 'true')
+  authorId  Int    // ID do autor (relacionamento com User)
+  author    User   @relation(fields: [authorId], references: [id]) // Relacionamento com User
 }
+
